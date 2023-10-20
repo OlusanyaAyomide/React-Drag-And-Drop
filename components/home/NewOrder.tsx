@@ -76,7 +76,7 @@ export default function NewOrder() {
         />
         <InputField
           name='dropOf'
-          text='Drop in location'
+          text='Drop off location'
           error={formik.touched.dropOf?formik.errors.dropOf:""}
           value={formik.values.dropOf}
           placeholder='1,Allen avenue, ikeja'
