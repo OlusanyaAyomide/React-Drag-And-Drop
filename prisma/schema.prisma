@@ -1,0 +1,28 @@
+generator client {
+    provider = "prisma-client-js"
+}
+//"postgresql"
+datasource db {
+    provider ="sqlite"
+    url = "file:sqlite3"
+}
+
+model Orders{
+    id  Int @default(autoincrement()) @id @unique
+    orderId String
+    firstName String
+    lastName String
+    dropIn String
+    dropOf String
+    createdAt  DateTime @default(now())
+    drawer Drawer? @relation(fields: [drawerId], references: [id])
+    drawerId Int?
+}
+
+model Drawer{
+    id  Int @default(autoincrement()) @id @unique
+    day DateTime
+
+    orders Orders[]
+}
+
